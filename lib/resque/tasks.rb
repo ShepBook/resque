@@ -41,7 +41,7 @@ namespace :resque do
   task :preload => :setup do
     if defined?(Rails)
       if Rails::VERSION::MAJOR > 4
-        Rails.application.eager_load!
+        puts "do nothing"
 
       elsif Rails::VERSION::MAJOR > 3
         ActiveSupport.run_load_hooks(:before_eager_load, Rails.application)
