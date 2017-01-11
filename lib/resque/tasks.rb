@@ -43,7 +43,8 @@ namespace :resque do
       if Rails::VERSION::MAJOR > 4
         ActiveSupport.run_load_hooks(:before_eager_load, Rails.application)
         Rails.application.eager_load!
-        
+        throw :stop
+
       elsif Rails::VERSION::MAJOR > 3
         ActiveSupport.run_load_hooks(:before_eager_load, Rails.application)
         Rails.application.config.eager_load_namespaces.each(&:eager_load!)
